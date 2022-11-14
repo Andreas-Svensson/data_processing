@@ -1,10 +1,7 @@
 import dash
-import dash_bootstrap_components as dbc
 import os
 from load_data import StockData
 
-# to avoid having to write dash.html and dash.dcc (dash core components)
-from dash import html, dcc
 from dash.dependencies import Output, Input
 import plotly_express as px
 from time_filtering import filter_time
