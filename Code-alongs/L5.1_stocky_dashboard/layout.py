@@ -1,4 +1,8 @@
-from dash import html, dcc
+from dash import (
+    html,
+    dcc,
+)  # to avoid having to write dash.html and dash.dcc (dash core components)
+import dash_bootstrap_components as dbc
 
 
 class Layout:
@@ -22,14 +26,29 @@ class Layout:
         }
 
     def layout(self):
-        return html.Main(
+        # returning html main is everything on the webpage in this case
+        # so for this case, this return is essentially the entire dashboard visual
+        # and main does app callbacks (listeners) for events
+        # "html.Main"
+
+        # returning dbc.Container instead returns a container place in main (?)
+        return dbc.Container(
             [
-                html.H1("Techy Stocks Viewer"),
-                html.P("Choose a stock"),
-                dcc.Dropdown(
-                    id="stockpicker-dropdown",
-                    options=self._stock_options_dropdown,
-                    value="AAPL",  # default value of dropdown
+                dbc.Card(
+                    dbc.CardBody(html.H1("Techy Stocks Viewer")), className="mt-5"
+                ),
+                dbc.Row(
+                    [
+                        dbc.Col(html.P("Choose a stock")),
+                        dbc.Col(
+                            dcc.Dropdown(
+                                id="stockpicker-dropdown",
+                                options=self._stock_options_dropdown,
+                                value="AAPL",  # default value of dropdown
+                            )
+                        ),
+                        dbc.Col(),
+                    ]
                 ),
                 html.P(id="highest-value"),
                 html.P(id="lowest-value"),
