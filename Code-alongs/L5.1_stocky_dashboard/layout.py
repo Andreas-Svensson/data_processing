@@ -38,25 +38,31 @@ class Layout:
                     dbc.CardBody(html.H1("Techy Stocks Viewer")), className="mt-5"
                 ),
                 dbc.Row(
-                    [
-                        dbc.Col(html.P("Choose a stock")),
+                    className="mt-4",
+                    children=[
+                        dbc.Col(html.P("Choose a stock"), className="mt-1"),
                         dbc.Col(
                             dcc.Dropdown(
                                 id="stockpicker-dropdown",
                                 options=self._stock_options_dropdown,
                                 value="AAPL",  # default value of dropdown
+                            ),
+                            lg="4",  # lg 3 = 3 units on large screen (out of 10)
+                        ),
+                        dbc.Col(
+                            dbc.Card(
+                                dcc.RadioItems(
+                                    id="ohlc-radio",
+                                    className="m-1",
+                                    options=self._ohlc_options,  # ohlc - open high low close
+                                    value="close",
+                                )
                             )
                         ),
-                        dbc.Col(),
-                    ]
+                    ],
                 ),
                 html.P(id="highest-value"),
                 html.P(id="lowest-value"),
-                dcc.RadioItems(
-                    id="ohlc-radio",
-                    options=self._ohlc_options,  # ohlc - open high low close
-                    value="close",
-                ),
                 dcc.Graph(id="stock-graph"),
                 dcc.Slider(
                     id="time-slider",

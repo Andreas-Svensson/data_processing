@@ -20,7 +20,15 @@ df_dict = {symbol: stockdata_object.stock_dataframe(symbol) for symbol in symbol
 
 # create a dash app
 # dash building on flask
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.MATERIA])
+app = dash.Dash(
+    __name__,
+    external_stylesheets=[dbc.themes.MATERIA],
+    # meta_tags makes possible for responsivity, rescaling layout based on device width in this case
+    # this can then be used to customize how it works in our styling
+    meta_tags=[
+        dict(name="viewport", content="width=device-width, initial-scale = 1.0")
+    ],
+)
 
 app.layout = Layout(symbol_dict).layout()
 
