@@ -44,7 +44,7 @@ class Layout:
                             html.P("Choose a stock"),
                             className="mt-1",
                             xs="12",  # can be done in css probably
-                            sm="12",
+                            sm="12",  # asd
                             md="6",
                             lg="4",
                             xl={"offset": 2, "size": 2},
