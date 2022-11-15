@@ -43,7 +43,7 @@ class Layout:
                         dbc.Col(
                             html.P("Choose a stock"),
                             className="mt-1",
-                            xs="12",
+                            xs="12",  # can be done in css probably
                             sm="12",
                             md="6",
                             lg="4",
