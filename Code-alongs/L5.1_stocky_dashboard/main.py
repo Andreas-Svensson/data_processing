@@ -56,7 +56,7 @@ def highest_lowest_value_update(json_df, ohlc):
     dff = pd.read_json(json_df)
     highest_value = dff[ohlc].max()
     lowest_value = dff[ohlc].min()
-    return highest_value, lowest_value
+    return f"${highest_value:.2f}", f"${lowest_value:.2f}"
 
 
 @app.callback(
