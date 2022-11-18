@@ -21,6 +21,7 @@ lxml = "*"
 python-dotenv = "*"
 dash = "*"
 dash-bootstrap-components = "*"
+numexpr = "*"
 
 [dev-packages]
 
